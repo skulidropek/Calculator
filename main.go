@@ -22,6 +22,7 @@ func main() {
 		}
 	}
 }
+
 func calculate(input string) (string, error) {
 	input = strings.ToUpper(strings.TrimSpace(input))
 	match, _ := regexp.MatchString(`^(I{1,3}|IV|V|VI{0,3}|IX|X|[1-9]|10) [\+\-\*\/] (I{1,3}|IV|V|VI{0,3}|IX|X|[1-9]|10)$`, input)
@@ -113,9 +114,9 @@ func arabicToRoman(number int) string {
 		Value  int
 		Symbol string
 	}{
-		{10, "X"}, {9, "IX"},
-		{5, "V"}, {4, "IV"},
-		{1, "I"},
+		{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
+		{100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"},
+		{10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"},
 	}
 	var roman string
 	for _, numeral := range romanNumerals {
